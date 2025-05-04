@@ -15,10 +15,10 @@ const Header = () => {
           </p>
         </div>
         <div className="flex flex-wrap gap-3 justify-center">
-          <a href="#experience" className="px-5 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+          <a href="#experience" className="px-5 py-2 rounded-md bg-accent text-accent-foreground hover:bg-accent/80 transition-colors">
             My Experience
           </a>
-          <a href="#projects" className="px-5 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors">
+          <a href="#projects" className="px-5 py-2 rounded-md border border-accent text-accent hover:bg-accent/10 transition-colors">
             View Projects
           </a>
         </div>
