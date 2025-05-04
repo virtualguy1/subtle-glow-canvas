@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { User } from 'lucide-react';
 const Header = () => {
   return <header className="min-h-[40vh] flex flex-col justify-center items-center">
-      <div className="max-w-3xl mx-auto text-center animate-fade-in">
+      <div className="max-w-4xl mx-auto text-center animate-fade-in">
         <div className="flex items-center justify-center mb-4">
           
         </div>
