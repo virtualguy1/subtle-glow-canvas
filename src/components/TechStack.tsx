@@ -36,22 +36,22 @@ const TechStack = () => {
 
   return (
     <section id="tech-stack" className="section bg-secondary/30">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center gap-2 mb-10">
-          <Code className="text-primary w-6 h-6" />
+      <div className="max-w-4xl mx-auto">
+        <div className="flex items-center gap-2 mb-6">
+          <Code className="text-accent w-6 h-6" />
           <h2 className="section-heading">Technical Skills</h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skills.map((skill, idx) => (
             <div key={idx} className="reveal" style={{ transitionDelay: `${idx * 100}ms` }}>
-              <div className="flex justify-between items-center mb-2">
+              <div className="flex justify-between items-center mb-1">
                 <h3 className="font-medium">{skill.name}</h3>
                 <span className="text-sm text-muted-foreground">{skill.level}%</span>
               </div>
               <div className="h-2 bg-secondary rounded-full overflow-hidden">
                 <div 
-                  className="skill-bar h-full bg-primary origin-left scale-x-0 transition-transform duration-1000"
+                  className="skill-bar h-full bg-accent origin-left scale-x-0 transition-transform duration-1000"
                   style={{ transform: `scaleX(${skill.level / 100})` }}
                 ></div>
               </div>
@@ -59,11 +59,11 @@ const TechStack = () => {
           ))}
         </div>
         
-        <div className="mt-16 text-center reveal">
-          <h3 className="text-xl font-bold mb-4">Other Technologies</h3>
-          <div className="flex flex-wrap justify-center gap-3">
+        <div className="mt-12 text-center reveal">
+          <h3 className="text-xl font-bold mb-3">Other Technologies</h3>
+          <div className="flex flex-wrap justify-center gap-2">
             {["MongoDB", "Firebase", "AWS", "Docker", "Redux", "Next.js", "TailwindCSS", "Figma"].map((tech, idx) => (
-              <span key={idx} className="px-4 py-2 bg-background rounded-md border hover:border-primary/50 transition-colors">
+              <span key={idx} className="px-3 py-1 text-xs rounded-md bg-background border hover:border-accent/50 transition-colors">
                 {tech}
               </span>
             ))}

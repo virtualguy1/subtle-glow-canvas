@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
 import TechStack from '@/components/TechStack';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const Index = () => {
   useEffect(() => {
@@ -28,21 +29,20 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen px-6 md:px-10 lg:px-16 max-w-7xl mx-auto">
+      <ThemeToggle />
       <Header />
       <Experience />
       <Projects />
       <TechStack />
       
-      <footer className="py-8 text-center text-muted-foreground border-t">
-        <div className="container mx-auto px-4">
-          <p>© {new Date().getFullYear()} John Doe. All rights reserved.</p>
-          <div className="mt-4 flex justify-center space-x-4">
-            <a href="#" className="hover:text-primary transition-colors">GitHub</a>
-            <a href="#" className="hover:text-primary transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-primary transition-colors">Twitter</a>
-            <a href="mailto:hello@example.com" className="hover:text-primary transition-colors">Contact</a>
-          </div>
+      <footer className="py-6 text-center text-muted-foreground border-t">
+        <p>© {new Date().getFullYear()} John Doe. All rights reserved.</p>
+        <div className="mt-3 flex justify-center space-x-4">
+          <a href="#" className="hover:text-accent transition-colors">GitHub</a>
+          <a href="#" className="hover:text-accent transition-colors">LinkedIn</a>
+          <a href="#" className="hover:text-accent transition-colors">Twitter</a>
+          <a href="mailto:hello@example.com" className="hover:text-accent transition-colors">Contact</a>
         </div>
       </footer>
     </div>

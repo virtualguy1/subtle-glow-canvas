@@ -48,24 +48,24 @@ const Experience = () => {
 
   return (
     <section id="experience" className="section bg-secondary/30" ref={sectionRef}>
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center gap-2 mb-10">
-          <Briefcase className="text-primary w-6 h-6" />
+      <div className="max-w-4xl mx-auto">
+        <div className="flex items-center gap-2 mb-6">
+          <Briefcase className="text-accent w-6 h-6" />
           <h2 className="section-heading">Professional Experience</h2>
         </div>
         
-        <div className="space-y-12">
+        <div className="space-y-8">
           {experiences.map((exp, idx) => (
             <div 
               key={idx} 
               className="reveal relative pl-6 border-l-2 border-border"
             >
-              <div className="absolute -left-[9px] top-0 w-4 h-4 bg-primary rounded-full"></div>
-              <div className="mb-2">
+              <div className="absolute -left-[9px] top-0 w-4 h-4 bg-accent rounded-full"></div>
+              <div className="mb-1">
                 <span className="text-sm font-medium text-muted-foreground">{exp.period}</span>
               </div>
               <h3 className="text-xl font-bold mb-1">{exp.title}</h3>
-              <h4 className="text-lg text-primary mb-3">{exp.company}</h4>
+              <h4 className="text-lg text-accent mb-2">{exp.company}</h4>
               <p className="text-base text-muted-foreground">{exp.description}</p>
             </div>
           ))}
