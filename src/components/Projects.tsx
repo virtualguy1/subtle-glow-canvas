@@ -1,9 +1,10 @@
 
 import React, { useEffect } from 'react';
-import { FolderOpen } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { Badge } from '@/components/ui/badge';
 
 const projects = [{
   title: "E-commerce Platform",
@@ -47,34 +48,53 @@ const Projects = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, idx) => <div key={idx} className="project-card reveal opacity-0 translate-y-4 transition-all duration-700" style={{
-          transitionDelay: `${idx * 150}ms`
-        }}>
-              <Card className="h-full flex flex-col hover:shadow-md transition-all duration-300 hover:border-accent/70">
-                <CardHeader className="pb-4">
-                  <CardTitle>{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
+          {projects.map((project, idx) => (
+            <div 
+              key={idx} 
+              className="project-card reveal opacity-0 translate-y-4 transition-all duration-700" 
+              style={{
+                transitionDelay: `${idx * 150}ms`
+              }}
+            >
+              <Card className="h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:border-accent/80 overflow-hidden">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-xl">{project.title}</CardTitle>
+                  <Separator className="mt-2 bg-border/60" />
                 </CardHeader>
                 
-                <Separator className="mx-6" />
-                
-                <CardContent className="flex-grow pt-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, tagIdx) => <span key={tagIdx} className="px-3 py-1 text-xs rounded-full bg-secondary text-secondary-foreground border border-border/30">
+                <CardContent className="py-4 flex-grow">
+                  <CardDescription className="mb-4 text-sm">{project.description}</CardDescription>
+                  
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {project.tags.map((tag, tagIdx) => (
+                      <Badge 
+                        key={tagIdx} 
+                        variant="secondary" 
+                        className="rounded-full text-xs font-normal py-1"
+                      >
                         {tag}
-                      </span>)}
+                      </Badge>
+                    ))}
                   </div>
                 </CardContent>
                 
-                <Separator className="mx-6 mb-2" />
+                <Separator className="bg-border/60" />
                 
-                <CardFooter className="pt-2">
-                  <Button asChild variant="outline" className="w-full border-accent/50 text-accent hover:bg-accent/10 hover:text-accent">
-                    <a href={project.link}>View Project</a>
+                <CardFooter className="pt-4 pb-4">
+                  <Button 
+                    asChild 
+                    variant="outline" 
+                    className="w-full border-accent/50 text-accent hover:bg-accent/10 hover:text-accent gap-2"
+                  >
+                    <a href={project.link}>
+                      View Project
+                      <ExternalLink size={16} />
+                    </a>
                   </Button>
                 </CardFooter>
               </Card>
-            </div>)}
+            </div>
+          ))}
         </div>
       </div>
     </section>;
