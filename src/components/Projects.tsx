@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 import { FolderOpen } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+
 const projects = [{
   title: "E-commerce Platform",
   description: "A full-stack e-commerce solution with product management, cart functionality and payment processing.",
@@ -19,6 +21,7 @@ const projects = [{
   tags: ["TypeScript", "React", "Firebase"],
   link: "#"
 }];
+
 const Projects = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -36,10 +39,10 @@ const Projects = () => {
       revealElements.forEach(el => observer.unobserve(el));
     };
   }, []);
+  
   return <section id="projects" className="section">
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center gap-2 mb-10">
-          
           <h2 className="section-heading">Featured Projects</h2>
         </div>
         
@@ -47,20 +50,26 @@ const Projects = () => {
           {projects.map((project, idx) => <div key={idx} className="project-card reveal opacity-0 translate-y-4 transition-all duration-700" style={{
           transitionDelay: `${idx * 150}ms`
         }}>
-              <Card className="h-full flex flex-col hover:shadow-md transition-all duration-300 hover:border-primary/40">
-                <CardHeader>
+              <Card className="h-full flex flex-col hover:shadow-md transition-all duration-300 hover:border-accent/70">
+                <CardHeader className="pb-4">
                   <CardTitle>{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
-                <CardContent className="flex-grow">
+                
+                <Separator className="mx-6" />
+                
+                <CardContent className="flex-grow pt-4">
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, tagIdx) => <span key={tagIdx} className="px-3 py-1 text-xs rounded-full bg-secondary text-secondary-foreground">
+                    {project.tags.map((tag, tagIdx) => <span key={tagIdx} className="px-3 py-1 text-xs rounded-full bg-secondary text-secondary-foreground border border-border/30">
                         {tag}
                       </span>)}
                   </div>
                 </CardContent>
-                <CardFooter>
-                  <Button asChild variant="outline" className="w-full">
+                
+                <Separator className="mx-6 mb-2" />
+                
+                <CardFooter className="pt-2">
+                  <Button asChild variant="outline" className="w-full border-accent/50 text-accent hover:bg-accent/10 hover:text-accent">
                     <a href={project.link}>View Project</a>
                   </Button>
                 </CardFooter>
@@ -70,4 +79,5 @@ const Projects = () => {
       </div>
     </section>;
 };
+
 export default Projects;
