@@ -57,13 +57,13 @@ const Projects = () => {
               }}
             >
               <Card className="h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:border-accent/80 overflow-hidden">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-xl">{project.title}</CardTitle>
-                  <Separator className="mt-2 bg-border/60" />
+                <CardHeader className="pb-4 pt-6">
+                  <CardTitle className="text-xl mb-4">{project.title}</CardTitle>
+                  <Separator className="bg-border/60" />
                 </CardHeader>
                 
-                <CardContent className="py-4 flex-grow">
-                  <CardDescription className="mb-4 text-sm">{project.description}</CardDescription>
+                <CardContent className="py-6 flex-grow flex flex-col">
+                  <CardDescription className="text-sm mb-6">{project.description}</CardDescription>
                   
                   <div className="flex flex-wrap gap-2 mt-auto">
                     {project.tags.map((tag, tagIdx) => (
@@ -80,7 +80,7 @@ const Projects = () => {
                 
                 <Separator className="bg-border/60" />
                 
-                <CardFooter className="pt-4 pb-4">
+                <CardFooter className="py-6">
                   <Button 
                     asChild 
                     variant="outline" 
