@@ -1,45 +1,50 @@
-
-import React, { useEffect, useState } from 'react';
-import { Moon, Sun } from 'lucide-react';
-import { Toggle } from '@/components/ui/toggle';
+import React, { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
+import { Toggle } from "@/components/ui/toggle";
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<"light" | "dark">("light");
 
   // Check for user's system preference or saved preference
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setTheme('dark');
-      document.documentElement.classList.add('dark');
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+      setTheme("dark");
+      document.documentElement.classList.add("dark");
     } else {
-      setTheme('light');
-      document.documentElement.classList.remove('dark');
+      setTheme("light");
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
+    const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
+    localStorage.setItem("theme", newTheme);
+
+    if (newTheme === "dark") {
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   };
 
   return (
-    <Toggle 
-      pressed={theme === 'dark'} 
+    <Toggle
+      pressed={theme === "dark"}
       onPressedChange={toggleTheme}
       aria-label="Toggle dark mode"
       className="fixed top-4 right-4 z-10 size-10 rounded-full"
     >
-      {theme === 'dark' ? <Sun className="size-4" /> : <Moon className="size-4" />}
+      {theme === "dark" ? (
+        <Sun className="size-4" />
+      ) : (
+        <Moon className="size-4" />
+      )}
     </Toggle>
   );
 };

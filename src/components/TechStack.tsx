@@ -113,9 +113,7 @@ const TechStack = () => {
                       key={skillIdx}
                       className="group bg-card hover:bg-card/80 border border-border hover:border-accent/30 rounded-lg p-3 transition-all duration-300 shadow-sm hover:shadow flex items-center gap-3"
                     >
-                      <span className="font-medium">
-                        {skill.name}
-                      </span>
+                      <span className="font-medium">{skill.name}</span>
                       <Badge
                         variant="outline"
                         className={`${getLevelColorClass(
