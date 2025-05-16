@@ -1,5 +1,7 @@
+
 import { useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
+
 const skills = [
   {
     name: "JavaScript",
@@ -50,12 +52,14 @@ const levelToText = (level: number) => {
   if (level >= 50) return "Intermediate";
   return "Beginner";
 };
+
 const getLevelColorClass = (level: number) => {
   if (level >= 90) return "bg-accent/20 text-accent border-accent/50";
   if (level >= 80) return "bg-primary/10 text-primary border-primary/30";
   if (level >= 70) return "bg-secondary border-secondary/70";
   return "bg-muted border-muted/50";
 };
+
 const TechStack = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -99,7 +103,7 @@ const TechStack = () => {
             ([category, categorySkills], idx) => (
               <div
                 key={category}
-                className="reveal-item translate-y-4 transition-all duration-700"
+                className="reveal-item opacity-0 translate-y-4 transition-all duration-700"
                 style={{
                   transitionDelay: `${idx * 100}ms`,
                 }}
@@ -111,7 +115,7 @@ const TechStack = () => {
                   {categorySkills.map((skill, skillIdx) => (
                     <div
                       key={skillIdx}
-                      className="group bg-card hover:bg-card/80 border border-border hover:border-accent/30 rounded-lg p-3 transition-all duration-300 shadow-sm hover:shadow flex items-center gap-3"
+                      className="group bg-background hover:bg-accent/5 border border-border hover:border-accent/30 rounded-lg p-3 transition-all duration-300 shadow-sm hover:shadow flex items-center gap-3"
                     >
                       <span className="font-medium">{skill.name}</span>
                       <Badge
@@ -133,4 +137,5 @@ const TechStack = () => {
     </section>
   );
 };
+
 export default TechStack;
