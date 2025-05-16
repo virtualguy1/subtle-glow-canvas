@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { Toggle } from "@/components/ui/toggle";
@@ -39,10 +38,10 @@ const ThemeToggle = () => {
       pressed={theme === "dark"}
       onPressedChange={toggleTheme}
       aria-label="Toggle dark mode"
-      className="fixed top-4 right-4 z-10 size-10 rounded-full bg-background border border-border"
+      className="fixed top-4 right-4 z-10 size-10 rounded-full"
     >
       {theme === "dark" ? (
-        <Sun className="size-4 text-accent" />
+        <Sun className="size-4" />
       ) : (
         <Moon className="size-4" />
       )}
